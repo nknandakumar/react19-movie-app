@@ -25,6 +25,8 @@ const App = () => {
 
 	useDebounce(() => setDebounceSearchTerm(searchTerm), 500, [searchTerm]);
     
+
+
     const loadTrendingMovies = async () => {
         try {
         const movies = await getTrendingMovies()
@@ -50,7 +52,7 @@ const App = () => {
 				return;
 			}
 			setMovieList(data.results || []);
-			console.log(data.results || []);
+
 			if (query && data.results.length > 0) {
 				await updateSearchCount(query, data.results[0]);
 			}
@@ -101,7 +103,7 @@ const App = () => {
                  )}
 
 				<section className="all-movies">
-					<h1 className="">All Movies</h1>
+					<h2 className="">All Movies</h2>
 					{isLoadin ? (
 						<p className="text-white">Loading...</p>
 					) : errorMsg ? (
